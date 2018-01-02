@@ -48,8 +48,6 @@ class App extends React.Component {
     });
   }
 
-  loadFile() {}
-
   render() {
     const { md } = this.state;
     return (
