@@ -1,0 +1,37 @@
+{
+  "name": "markdown-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "webpack",
+    "electron": "electron .",
+    "dev": "webpack -d --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "brace": "^0.11.0",
+    "codemirror": "^5.33.0",
+    "devtron": "^1.4.0",
+    "electron": "^1.6.11",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.2.1",
+    "markdown-it": "^8.4.0",
+    "photonkit": "^0.1.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-render-html": "^0.6.0",
+    "webpack": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.6",
+    "style-loader": "^0.19.1"
+  }
+}
