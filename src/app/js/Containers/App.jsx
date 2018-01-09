@@ -18,6 +18,8 @@ class App extends React.Component {
     };
     this.updateMD = this.updateMD.bind(this);
     this.openFile = this.openFile.bind(this);
+    this.getVimCommand = this.getVimCommand.bind(this);
+    this.evalVimCommand = this.evalVimCommand.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +29,17 @@ class App extends React.Component {
         currentFile: file
       });
       this.openFile(this.state.currentFile);
+    });
+    ReactDOM.findDOMNode(this).addEventListener("keypress", e => {
+      const keyName = e.key;
+      if (keyName == ":") {
+        $("footer").toggleClass("is-hidden");
+        $("#vim-input").focus();
+        $("#vim-input")[0].scrollIntoView();
+        // if ($("footer").hasClass("is-hidden")) {
+        //   $(".vim-input").focus();
+        // }
+      }
     });
   }
 
@@ -48,6 +61,17 @@ class App extends React.Component {
     });
   }
 
+  getVimCommand(event) {
+    if (event.key == "Enter") {
+      console.log(event.target.value);
+      this.evalVimCommand(event.target.value.slice(1));
+    }
+  }
+
+  evalVimCommand(command) {
+    console.log(command);
+  }
+
   render() {
     const { md } = this.state;
     return (
@@ -62,6 +86,15 @@ class App extends React.Component {
             <MarkdownPreview md={md} />
           </div>
         </div>
+        <footer className="footer is-hidden">
+          <input
+            type="text"
+            id="vim-input"
+            className="vim-input"
+            defaultValue=":"
+            onKeyDown={this.getVimCommand}
+          />
+        </footer>
       </div>
     );
   }
